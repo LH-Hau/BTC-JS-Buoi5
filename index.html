@@ -7,30 +7,59 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
+    <!-- start Quản lý tuyển sinh -->
     <section class="quanLyTuyenSinh">
-      <div style="background-color: bisque">
+      <div class="container" style="background-color: #f0f0f0">
         <h1 style="background-color: aqua">Quản lý tuyển sinh</h1>
-        <div>
-          <input type="text" id="diemChuan" placeholder="Điểm chuẩn" />
-          <div>
-            <label for="options">Chọn khu vực</label>
+        <div class="input_container">
+          <div class="ip_QLTS">
+            <input type="text" id="diemChuan" placeholder="Điểm chuẩn" />
+          </div>
+          <div class="ip_QLTS">
             <select name="options" id="options">
+              <option value="options0">--Chọn khu vực--</option>
               <option value="options1">A</option>
               <option value="options2">B</option>
               <option value="options3">C</option>
             </select>
           </div>
-          <div>
-            <label for="options">Chọn đối tượng</label>
+          <div class="ip_QLTS">
             <select name="options" id="options">
+              <option value="options0">--Chọn đối tượng--</option>
               <option value="options1">1</option>
               <option value="options2">2</option>
               <option value="options3">3</option>
             </select>
           </div>
+          <div class="ip_QLTS">
+            <input type="text" id="diemMon1" placeholder="Điểm môn thứ 1" />
+          </div>
+          <div class="ip_QLTS">
+            <input type="text" id="diemMon2" placeholder="Điểm môn thứ 2" />
+          </div>
+          <div class="ip_QLTS">
+            <input type="text" id="diemMon3" placeholder="Điểm môn thứ 3" />
+          </div>
+        </div>
+        <button id="btnQLTS">Kết quả</button>
+        <div id="outPutQLTS">
+          <h2></h2>
         </div>
       </div>
     </section>
+    <!-- end Quản lý tuyển sinh -->
+
+    <!-- start Tính tiền điện -->
+    <section class="tinhTienDien"></section>
+    <!-- end Tính tiền điện -->
+
+    <!-- start Tính thuế thu nhập cá nhân -->
+    <section class="tinhThue"></section>
+    <!-- end Tính thuế thu nhập cá nhân -->
+
+    <!-- start Tính tiền cáp -->
+    <section class="tinhTienCap"></section>
+    <!-- end Tính tiền cáp -->
   </body>
   <script src="./index.js"></script>
 </html>
