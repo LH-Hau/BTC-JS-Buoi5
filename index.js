@@ -1,7 +1,5 @@
 // bài 1
-
 document.getElementById("btnQLTS").onclick = function () {
-  console.log("yes");
   let diemChuan = document.getElementById("diemChuan").value * 1;
 
   //tính điểm 3 môn
@@ -47,47 +45,62 @@ document.getElementById("btnQLTS").onclick = function () {
     ).innerHTML = `Xin lỗi bạn đã rớt. Tổng điểm: ${tongDiem * 1}`;
   }
 };
-
-// let tinhDiem3Mon = () => {
-//   let diem1 = document.getElementById("diemMon1").value * 1;
-//   let diem2 = document.getElementById("diemMon2").value * 1;
-//   let diem3 = document.getElementById("diemMon3").value * 1;
-//   let kqTS = 0;
-
-//   kqTS = diem1 + diem2 + diem3;
-//   return kqTS;
-//   //   document.getElementById("outPutQLTS").innerHTML = kqTS;
-// };
-
-// let diemOptionKV = () => {
-//   const optionsKV = document.getElementById("optionsKV");
-//   const opKV = optionsKV ? optionsKV.value : null;
-
-//   const pointMap = {
-//     optionsKV0: 0,
-//     optionsKV1: 2,
-//     optionsKV2: 1,
-//     optionsKV3: 0.5,
-//   };
-
-//   const diemKV = pointMap[opKV];
-//   //   document.getElementById("outPutQLTS").innerHTML = point;
-//   return diemKV;
-// };
-// let diemOptionDT = () => {
-//   const optionsDT = document.getElementById("optionsDT");
-//   const opDT = optionsDT ? optionsDT.value : null;
-
-//   const pointMap = {
-//     optionsDT0: 0,
-//     optionsDT1: 2.5,
-//     optionsDT2: 1.5,
-//     optionsDT3: 1,
-//   };
-
-//   const diemDT = pointMap[opDT];
-//   //   document.getElementById("outPutQLTS").innerHTML = point;
-//   return diemDT;
-// };
-
 // end bài 1
+
+//Bài 2
+document.getElementById("btnTTD").onclick = function () {
+  let hoTen = document.getElementById("hoTen").value;
+  let soKw = document.getElementById("soKw").value * 1;
+
+  if (!hoTen) {
+    document.getElementById("outPutTTD").innerHTML = "Vui lòng nhập họ tên.";
+    return;
+  }
+
+  let tienDien = 0;
+  const soKwDau = 50;
+  const kwDau = 500;
+
+  const soKw50Ke = 50;
+  const kw50Ke = 650;
+
+  const soKw100Ke = 100;
+  const kw100Ke = 850;
+
+  const soKw150Ke = 150;
+  const kw150Ke = 1100;
+
+  const kwTren350 = 1300;
+
+  if (!soKw || isNaN(soKw) || soKw < 0) {
+    document.getElementById("outPutTTD").innerHTML =
+      "Số Kw không hợp lệ. Vui lòng nhập lại.";
+    return;
+  } else if (soKw > 0 && soKw <= 50) {
+    tienDien = soKw * kwDau;
+  } else if (soKw <= 100) {
+    tienDien = soKwDau * kwDau + (soKw - soKwDau) * kw50Ke;
+  } else if (soKw <= 200) {
+    tienDien =
+      soKwDau * kwDau +
+      soKw50Ke * kw50Ke +
+      (soKw - (soKwDau + soKw50Ke)) * kw100Ke;
+  } else if (soKw <= 350) {
+    tienDien =
+      soKwDau * kwDau +
+      soKw50Ke * kw50Ke +
+      soKw100Ke * kw100Ke +
+      (soKw - (soKwDau + soKw50Ke + soKw100Ke)) * kw150Ke;
+  } else {
+    tienDien =
+      soKwDau * kwDau +
+      soKw50Ke * kw50Ke +
+      soKw100Ke * kw100Ke +
+      soKw150Ke * kw150Ke +
+      (soKw - (soKwDau + soKw50Ke + soKw100Ke + soKw150Ke)) * kwTren350;
+  }
+  document.getElementById(
+    "outPutTTD"
+  ).innerHTML = `Họ Tên: ${hoTen}. Tiền điện: ${tienDien}`;
+};
+//End bài 2
