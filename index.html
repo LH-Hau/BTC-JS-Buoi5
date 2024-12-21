@@ -101,8 +101,62 @@
     <!-- end Tính thuế thu nhập cá nhân -->
 
     <!-- start Tính tiền cáp -->
-    <section class="tinhTienCap"></section>
+    <section class="tinhTienCap">
+      <div class="container" style="background-color: #f0f0f0">
+        <h1 style="background-color: aqua">Tính tiền cáp</h1>
+        <div class="inputTTC_container">
+          <div class="ip_TTC">
+            <select name="options" id="optionsTC">
+              <option value="optionsTC0">--Chọn loại khách hàng--</option>
+              <option value="optionsTC1">Nhà dân</option>
+              <option value="optionsTC2">Doanh nghiệp</option>
+            </select>
+            <div
+              id="optionsTC2-details"
+              class="hidden"
+              style="padding-top: 30px"
+            >
+              <input type="text" id="soKetNoi" placeholder="Số kết nối" />
+            </div>
+          </div>
+          <div class="ip_TTC">
+            <input type="text" id="maKH" placeholder="Mã khách hàng" />
+          </div>
+          <div class="ip_TTC">
+            <input
+              type="text"
+              id="soKenhCaoCap"
+              placeholder="Số kênh cao cấp"
+            />
+          </div>
+        </div>
+        <button id="btnTTC">Tính tiền cáp</button>
+        <div>
+          <h2 id="outPutTTC"></h2>
+        </div>
+      </div>
+    </section>
     <!-- end Tính tiền cáp -->
+
+    <!-- script ẩn hiện -->
+    <script>
+      // JavaScript để xử lý ẩn/hiện
+      const mainOptions = document.getElementById("optionsTC");
+      const option1Details = document.getElementById("option1-details");
+
+      mainOptions.addEventListener("change", function () {
+        // Lấy giá trị đã chọn
+        const selectedValue = mainOptions.value;
+
+        // Ẩn tất cả các div chi tiết
+        option1Details.classList.add("hidden");
+
+        // Hiển thị div tương ứng
+        if (selectedValue === "option1") {
+          option1Details.classList.remove("hidden");
+        }
+      });
+    </script>
   </body>
   <script src="./index.js"></script>
 </html>

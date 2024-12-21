@@ -1,5 +1,5 @@
 // bài 1
-document.getElementById("btnQLTS").onclick = function () {
+document.getElementById("btnQLTS").onclick = () => {
   let diemChuan = document.getElementById("diemChuan").value * 1;
 
   //tính điểm 3 môn
@@ -48,7 +48,7 @@ document.getElementById("btnQLTS").onclick = function () {
 // end bài 1
 
 //Bài 2
-document.getElementById("btnTTD").onclick = function () {
+document.getElementById("btnTTD").onclick = () => {
   let hoTen = document.getElementById("hoTen").value;
   let soKw = document.getElementById("soKw").value * 1;
 
@@ -106,7 +106,7 @@ document.getElementById("btnTTD").onclick = function () {
 //End bài 2
 
 //Bài 3
-document.getElementById("btnTTT").onclick = function () {
+document.getElementById("btnTTT").onclick = () => {
   let hoTenTT = document.getElementById("hoTenTT").value;
   let thuNhapNam = document.getElementById("thuNhapNam").value * 1;
   let soNguoiPT = document.getElementById("soNguoiPT").value * 1;
@@ -186,5 +186,5 @@ document.getElementById("btnTTT").onclick = function () {
 //End bài 3
 
 //Bài 4
-
+document.getElementById("tinhTienCap").onclick = () => {};
 //End bài 4
