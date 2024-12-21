@@ -106,17 +106,52 @@
         <h1 style="background-color: aqua">Tính tiền cáp</h1>
         <div class="inputTTC_container">
           <div class="ip_TTC">
-            <select name="options" id="optionsTC">
-              <option value="optionsTC0">--Chọn loại khách hàng--</option>
-              <option value="optionsTC1">Nhà dân</option>
-              <option value="optionsTC2">Doanh nghiệp</option>
+            <!-- <label for="customerType">Loại khách hàng:</label> -->
+            <select id="customerType" onchange="toggleInputField()">
+              <option value="customerType0">---Loại khách hàng---</option>
+              <option value="individual">Nhà dân</option>
+              <option value="business">Doanh nghiệp</option>
             </select>
+
             <div
-              id="optionsTC2-details"
-              class="hidden"
-              style="padding-top: 30px"
+              id="connectionNumberField"
+              style="display: none; margin-top: 10px"
             >
-              <input type="text" id="soKetNoi" placeholder="Số kết nối" />
+              <input
+                type="number"
+                id="connectionNumber"
+                name="connectionNumber"
+                min="1"
+                placeholder="Số kết nối"
+              />
+            </div>
+
+            <script>
+              function toggleInputField() {
+                const customerType =
+                  document.getElementById("customerType").value;
+                const connectionField = document.getElementById(
+                  "connectionNumberField"
+                );
+
+                if (customerType === "business") {
+                  connectionField.style.display = "block"; // Hiển thị ô nhập số kết nối
+                } else {
+                  connectionField.style.display = "none"; // Ẩn ô nhập số kết nối
+                }
+              }
+            </script>
+            <div
+              id="connectionNumberField"
+              style="display: none; margin-top: 10px"
+            >
+              <input
+                type="number"
+                id="connectionNumber"
+                name="connectionNumber"
+                min="1"
+                placeholder="Số kết nối"
+              />
             </div>
           </div>
           <div class="ip_TTC">
@@ -137,26 +172,6 @@
       </div>
     </section>
     <!-- end Tính tiền cáp -->
-
-    <!-- script ẩn hiện -->
-    <script>
-      // JavaScript để xử lý ẩn/hiện
-      const mainOptions = document.getElementById("optionsTC");
-      const option1Details = document.getElementById("option1-details");
-
-      mainOptions.addEventListener("change", function () {
-        // Lấy giá trị đã chọn
-        const selectedValue = mainOptions.value;
-
-        // Ẩn tất cả các div chi tiết
-        option1Details.classList.add("hidden");
-
-        // Hiển thị div tương ứng
-        if (selectedValue === "option1") {
-          option1Details.classList.remove("hidden");
-        }
-      });
-    </script>
   </body>
   <script src="./index.js"></script>
 </html>

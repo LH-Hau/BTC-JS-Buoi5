@@ -186,5 +186,36 @@ document.getElementById("btnTTT").onclick = () => {
 //End bài 3
 
 //Bài 4
-document.getElementById("tinhTienCap").onclick = () => {};
+document.getElementById("btnTTC").onclick = () => {
+  let maKH = document.getElementById("maKH").value;
+  let soKenhCaoCap = document.getElementById("soKenhCaoCap").value * 1;
+  let soKetNoi = document.getElementById("connectionNumber").value * 1;
+  let loaiKhachHang = document.getElementById("customerType").value;
+
+  let tienCap = 0;
+  switch (loaiKhachHang) {
+    case "individual": {
+      let phiHoaDon = 4.5;
+      let phiDichVu = 20.5;
+      let phiThueKenh = 7.5;
+      tienCap = phiHoaDon + phiDichVu + phiThueKenh;
+      // return tienCap;
+    }
+    case "business": {
+      let phiHoaDon = 15;
+      let phiKetNoi = 7.5;
+      let phiKetNoiTen10 = 5;
+      let phiThueKenh = 50;
+      let tienKetNoi =
+        soKetNoi <= 10
+          ? soKetNoi * phiKetNoi
+          : phiKetNoi * 10 + (soKetNoi - 10) * phiKetNoiTen10;
+      tienCap = phiHoaDon + tienKetNoi + soKenhCaoCap * phiThueKenh;
+      // return tienCap;
+    }
+  }
+  document.getElementById(
+    "outPutTTC"
+  ).innerHTML = `Mã khách hàng: ${maKH}.  Tiền cáp: $${tienCap}`;
+};
 //End bài 4
