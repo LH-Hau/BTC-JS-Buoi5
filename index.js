@@ -101,6 +101,6 @@ document.getElementById("btnTTD").onclick = function () {
   }
   document.getElementById(
     "outPutTTD"
-  ).innerHTML = `Họ Tên: ${hoTen}. Tiền điện: ${tienDien}`;
+  ).innerHTML = `Họ Tên: ${hoTen}. Tiền điện: ${tienDien.toLocaleString()} đ`;
 };
 //End bài 2
