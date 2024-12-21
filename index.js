@@ -104,3 +104,87 @@ document.getElementById("btnTTD").onclick = function () {
   ).innerHTML = `Họ Tên: ${hoTen}. Tiền điện: ${tienDien.toLocaleString()} đ`;
 };
 //End bài 2
+
+//Bài 3
+document.getElementById("btnTTT").onclick = function () {
+  let hoTenTT = document.getElementById("hoTenTT").value;
+  let thuNhapNam = document.getElementById("thuNhapNam").value * 1;
+  let soNguoiPT = document.getElementById("soNguoiPT").value * 1;
+
+  if (!hoTenTT) {
+    document.getElementById("outPutTTT").innerHTML = "Vui lòng nhập họ tên.";
+    return;
+  }
+
+  let thueCaNhan = 0;
+  const phiNguoiPT = 1600000;
+  const phiGiamChoBanThan = 4000000;
+  let thueXuat = null;
+
+  // const thueXuat1 = 0.05;
+  const thuNhapChiuThue1 = 60000000;
+
+  // const thueXuat2 = 0.1;
+  const thuNhapChiuThue2 = 120000000;
+
+  // const thueXuat3 = 0.15;
+  const thuNhapChiuThue3 = 210000000;
+
+  // const thueXuat4 = 0.2;
+  const thuNhapChiuThue4 = 384000000;
+
+  // const thueXuat5 = 0.25
+  const thuNhapChiuThue5 = 624000000;
+
+  // const thueXuat6 = 0.3
+  const thuNhapChiuThue6 = 960000000;
+
+  if (!thuNhapNam || isNaN(thuNhapNam) || thuNhapNam < 0) {
+    document.getElementById("outPutTTT").innerHTML =
+      "Số thu nhập không hợp lệ. Vui lòng nhập lại.";
+    return;
+  } else if (thuNhapNam > 0 && thuNhapNam <= thuNhapChiuThue1) {
+    thueXuat = 0.05;
+    thueCaNhan =
+      (thuNhapNam - phiGiamChoBanThan - soNguoiPT * phiNguoiPT) * thueXuat;
+  } else if (thuNhapNam <= thuNhapChiuThue2) {
+    thueXuat = 0.1;
+    thueCaNhan =
+      (thuNhapNam - phiGiamChoBanThan - soNguoiPT * phiNguoiPT) * thueXuat;
+  } else if (thuNhapNam <= thuNhapChiuThue3) {
+    thueXuat = 0.15;
+    thueCaNhan =
+      (thuNhapNam - phiGiamChoBanThan - soNguoiPT * phiNguoiPT) * thueXuat;
+  } else if (thuNhapNam <= thuNhapChiuThue4) {
+    thueXuat = 0.2;
+    thueCaNhan =
+      (thuNhapNam - phiGiamChoBanThan - soNguoiPT * phiNguoiPT) * thueXuat;
+  } else if (thuNhapNam <= thuNhapChiuThue5) {
+    thueXuat = 0.25;
+    thueCaNhan =
+      (thuNhapNam - phiGiamChoBanThan - soNguoiPT * phiNguoiPT) * thueXuat;
+  } else if (thuNhapNam <= thuNhapChiuThue6) {
+    thueXuat = 0.3;
+    thueCaNhan =
+      (thuNhapNam - phiGiamChoBanThan - soNguoiPT * phiNguoiPT) * thueXuat;
+  } else {
+    thueXuat = 0.35;
+    thueCaNhan =
+      (thuNhapNam - phiGiamChoBanThan - soNguoiPT * phiNguoiPT) * thueXuat;
+  }
+
+  if (soNguoiPT < 0) {
+    document.getElementById("outPutTTT").innerHTML =
+      "Vui lòng nhập đúng số người phụ thuộc.";
+    return;
+  }
+
+  document.getElementById(
+    "outPutTTT"
+  ).innerHTML = `Họ tên: ${hoTenTT}. Tiền thuế: ${thueCaNhan.toLocaleString()}`;
+};
+//End bài 3
+
+//Bài 4
+
+//End bài 4

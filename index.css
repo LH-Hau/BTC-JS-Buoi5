@@ -68,3 +68,29 @@
     font-weight: 300;
     border-radius: 10%;
 }
+
+
+/* CSS bài 3 */
+.tinhThue {
+    padding: 30px;
+}
+
+.inputTTT_container {
+    display: flex;
+    padding: 30px 0 30px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.ip_TTT input {
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 10%;
+}
+
+.ip_TTT select {
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 10%;
+}
