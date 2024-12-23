@@ -189,28 +189,37 @@ document.getElementById("btnTTT").onclick = () => {
 document.getElementById("btnTTC").onclick = () => {
   let maKH = document.getElementById("maKH").value;
   let soKenhCaoCap = document.getElementById("soKenhCaoCap").value * 1;
-  let soKetNoi = document.getElementById("connectionNumber").value * 1;
   let loaiKhachHang = document.getElementById("customerType").value;
 
   let tienCap = 0;
   switch (loaiKhachHang) {
     case "individual": {
-      let phiHoaDon = 4.5;
-      let phiDichVu = 20.5;
-      let phiThueKenh = 7.5;
-      tienCap = phiHoaDon + phiDichVu + phiThueKenh;
+      let phiHoaDonND = 4.5;
+      let phiDichVuND = 20.5;
+      let phiThueKenhND = 7.5;
+      tienCap = phiHoaDonND + phiDichVuND + phiThueKenhND * soKenhCaoCap;
       // return tienCap;
     }
     case "business": {
+      let soKetNoi = document.getElementById("connectionNumber").value * 1;
       let phiHoaDon = 15;
       let phiKetNoi = 7.5;
       let phiKetNoiTen10 = 5;
       let phiThueKenh = 50;
-      let tienKetNoi =
-        soKetNoi <= 10
-          ? soKetNoi * phiKetNoi
-          : phiKetNoi * 10 + (soKetNoi - 10) * phiKetNoiTen10;
-      tienCap = phiHoaDon + tienKetNoi + soKenhCaoCap * phiThueKenh;
+      if (soKetNoi <= 10) {
+        tienCap = phiHoaDon + phiKetNoi * 10;
+      } else if (soKetNoi > 10) {
+        tienCap =
+          phiHoaDon +
+          phiKetNoi * 10 +
+          (soKetNoi - 10) * phiKetNoiTen10 +
+          phiThueKenh * soKenhCaoCap;
+      }
+      // let tienKetNoi =
+      //   soKetNoi <= 10
+      //     ? phiKetNoi * 10 + phiHoaDon
+      //     : phiKetNoi * 10 + (soKetNoi - 10) * phiKetNoiTen10;
+      // tienCap = phiHoaDon + tienKetNoi + soKenhCaoCap * phiThueKenh;
       // return tienCap;
     }
   }
