@@ -190,6 +190,7 @@ document.getElementById("btnTTC").onclick = () => {
   let maKH = document.getElementById("maKH").value;
   let soKenhCaoCap = document.getElementById("soKenhCaoCap").value * 1;
   let loaiKhachHang = document.getElementById("customerType").value;
+  let soKetNoi = document.getElementById("connectionNumber").value * 1;
 
   let tienCap = 0;
   switch (loaiKhachHang) {
@@ -198,16 +199,17 @@ document.getElementById("btnTTC").onclick = () => {
       let phiDichVuND = 20.5;
       let phiThueKenhND = 7.5;
       tienCap = phiHoaDonND + phiDichVuND + phiThueKenhND * soKenhCaoCap;
+      break;
+
       // return tienCap;
     }
     case "business": {
-      let soKetNoi = document.getElementById("connectionNumber").value * 1;
       let phiHoaDon = 15;
       let phiKetNoi = 7.5;
       let phiKetNoiTen10 = 5;
       let phiThueKenh = 50;
       if (soKetNoi <= 10) {
-        tienCap = phiHoaDon + phiKetNoi * 10;
+        tienCap = phiHoaDon + phiKetNoi * 10 + soKenhCaoCap * phiThueKenh;
       } else if (soKetNoi > 10) {
         tienCap =
           phiHoaDon +
@@ -215,12 +217,7 @@ document.getElementById("btnTTC").onclick = () => {
           (soKetNoi - 10) * phiKetNoiTen10 +
           phiThueKenh * soKenhCaoCap;
       }
-      // let tienKetNoi =
-      //   soKetNoi <= 10
-      //     ? phiKetNoi * 10 + phiHoaDon
-      //     : phiKetNoi * 10 + (soKetNoi - 10) * phiKetNoiTen10;
-      // tienCap = phiHoaDon + tienKetNoi + soKenhCaoCap * phiThueKenh;
-      // return tienCap;
+      break;
     }
   }
   document.getElementById(
